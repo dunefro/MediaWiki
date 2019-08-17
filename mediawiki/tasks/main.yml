@@ -46,6 +46,15 @@
   pip:
     name: "MySQL-python"
     state: present
+- name: "Downloading the mediawiki software"
+  get_url:
+    url: https://releases.wikimedia.org/mediawiki/1.32/mediawiki-core-1.32.3.tar.gz
+    dest: /root/
+- unarchive:
+    src: /root/mediawiki-core-1.32.3.tar.gz
+    dest: /var/www/html/
+- shell: mv /var/www/html
+
 
 
 
