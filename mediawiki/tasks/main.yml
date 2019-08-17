@@ -23,5 +23,14 @@
     - php-xml 
     - php-intl  
     - mysql
+- name: "Starting the services"
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  with_items:
+    - httpd
+    - mariadb
+
 
 
