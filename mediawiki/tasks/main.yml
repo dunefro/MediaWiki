@@ -1,0 +1,14 @@
+---
+# tasks file for mediawiki
+#
+- name: "Creating yum repo"
+  yum_repository:
+    baseurl: "http://mirror.centos.org/centos/7/os/x86_64/"
+    description: "Centos_yum"
+    enabled: yes
+    file: "mediawiki"
+    name: "new_centos_yum"
+    state: present
+    gpgcheck: no
+
+
