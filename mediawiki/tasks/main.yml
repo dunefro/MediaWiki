@@ -10,5 +10,18 @@
     name: "new_centos_yum"
     state: present
     gpgcheck: no
+- name: "Installing softwares"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - httpd 
+    - php 
+    - php-mysql  
+    - php-gd  
+    - mariadb-server 
+    - php-xml 
+    - php-intl  
+    - mysql
 
 
