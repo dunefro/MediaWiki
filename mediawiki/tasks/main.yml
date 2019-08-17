@@ -31,6 +31,24 @@
   with_items:
     - httpd
     - mariadb
+- name: "Installing mysql-python module"
+  pip:
+        name: "MySQL-python"
+        state: present
+- name: "Create database mediawiki_db"
+  mysql_db:
+         login_user: root
+         login_password: redhat
+         name: "{{ db_name }}"
+         state: present
+- name: "Create database user with name 'wiki_user' and password 'mediawiki' with all database privileges"
+  mysql_user:
+          name: "{{ user_name  }}"
+          login_user: root
+          login_password: redhat
+          password: "{{ user_pass }}"
+          priv: '{{ db_name }}.*:ALL,GRANT'
+          state: present
 
 
 
