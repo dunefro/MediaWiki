@@ -1,19 +1,26 @@
 ---
 # tasks file for mediawikipart2
 #
+- copy:
+    src: Dockerfile_media
+    dest: "/root/Dockerfile"
 - docker_image:
-    dockerfile: Dockerfile_mediawiki
+#    dockerfile: Dockerfile_media
     name: mediawiki:v1
+    build:
+      dockrefile: Dockerfile
+      path: /root/
     pull: no
     state: present
+#    path: /root/Desktop/MediaWiki/mediawikipart2/files/
 - docker_container:
     name: cont1
     state: present
     detach: true
     interactive: true
     tty: true
-    image: medaiwiki:v1
-    state: present
+    image: mediawiki:v1
+    state: started
     published_ports:
       - "80:80"
 
