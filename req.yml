@@ -1,8 +1,28 @@
-- hosts: 192.168.56.116
+- hosts: bare
   tasks:
+   - name: "Setting yum repo"
+     yum_repository:
+       baseurl: "https://mirrors.aliyun.com/docker-ce/linux/centos/7/x86_64/stable/"
+       name: "docker_repo"
+       gpgcheck: no
+       description: "for docker"
+       state: present
+       enabled: yes
+   - name: "Setting yum repo"
+     yum_repository:
+       baseurl: "http://ftp.riken.jp/Linux/cern/centos/7/extras/x86_64/"
+       name: "selinux_repo"
+       gpgcheck: no
+       description: "for docker dependencies"
+       state: present
+       enabled: yes
+#   - name: "Installing Docker"
+#     package:
+#       name: docker-ce
+#       state: present
    - name: "Installing Docker"
-     package:
-       name: docker-ce
+     yum:
+       name: "https://mirrors.aliyun.com/docker-ce/linux/centos/7/x86_64/stable/Packages/docker-ce-18.06.1.ce-3.el7.x86_64.rpm"
        state: present
    - name: "Restart Docker service"
      service:
