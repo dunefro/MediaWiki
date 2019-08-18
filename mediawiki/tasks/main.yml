@@ -80,5 +80,11 @@
     dest: /var/www/html/
     remote_src: yes
 - shell: mv /var/www/html/mediawiki-1.32.3 /var/www/html/mediawiki
+- service:
+    name: "{{ item }}"
+    state: restarted
+  with_items:
+    - httpd
+    - mariadb
     
 

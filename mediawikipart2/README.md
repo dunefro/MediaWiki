@@ -1,32 +1,33 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+It is a role used for installing the mediawiki in docker containers
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
+The only requirement in the this role is that it should be deployed onto the machine already having docker yum repository.
+  
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+No variable dependencies though few important variables already defined and must be used in the same way written after the playbook is executed.
+
+mysql user - wiki_user
+mysql database - mediawiki_db
+mysql password - mediawiki
+
+NOTE: The user is allowed granted privileges from every IP.
+
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
+No other dependencies except the managed host must be centos or rhel.
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+The example is given in the README.md file in the parent directory.
 License
 -------
 
@@ -35,4 +36,5 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Name - Vedant Pareek
+email - pareekvedant99@gmail.com

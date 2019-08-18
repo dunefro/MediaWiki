@@ -15,7 +15,6 @@
 #    path: /root/Desktop/MediaWiki/mediawikipart2/files/
 - docker_container:
     name: cont1
-    state: present
     detach: true
     interactive: true
     tty: true
@@ -23,4 +22,13 @@
     state: started
     published_ports:
       - "80:80"
+- docker_container:
+    name: mysql_cont1
+    interactive: true
+    tty: true
+    image: dunefro/media_sql:v2
+    state: started
+    detach: true
+    command: "mysqld_safe"
+    
 
