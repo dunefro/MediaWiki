@@ -1,2 +1,19 @@
 ---
 # tasks file for mediawikipart2
+#
+- docker_image:
+    dockerfile: Dockerfile_mediawiki
+    name: mediawiki:v1
+    pull: no
+    state: present
+- docker_container:
+    name: cont1
+    state: present
+    detach: true
+    interactive: true
+    tty: true
+    image: medaiwiki:v1
+    state: present
+    published_ports:
+      - "80:80"
+

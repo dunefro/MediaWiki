@@ -1,0 +1,4 @@
+- import_playbook: req.yml
+- hosts: 192.168.56.116
+  roles: 
+    - role: mediawiki
